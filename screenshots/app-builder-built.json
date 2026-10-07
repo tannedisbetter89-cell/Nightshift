@@ -1,0 +1,41 @@
+{
+  "url": "http://127.0.0.1:8081/ledger",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Nightshift",
+      "hasCanvas": false,
+      "bodyTextLen": 942,
+      "bodyTextHash": "7c578570fd546c900fd976207762f6aec4d5f72fb042a230824f1c5c2cc787ae",
+      "bodyTextPrefix": "Nightshift AFTER HOURS Factory idle Floor Factory Vault Shop Rev",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Nightshift",
+      "hasCanvas": false,
+      "bodyTextLen": 894,
+      "bodyTextHash": "bdd9f6b02046e79b57f5a06544d495873d9ed6293df32ab36e3e0fe7104db7dc",
+      "bodyTextPrefix": "Nightshift REVENUE The desk Cash that actually landed, sliced by",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": true,
+  "baselineReasons": [
+    "desktop: body text collapsed (2697 -> 942 chars)",
+    "mobile: body text collapsed (3858 -> 894 chars)"
+  ]
+}
