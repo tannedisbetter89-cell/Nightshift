@@ -5,15 +5,16 @@ import { ProductCard } from "@/components/product-card";
 import { useNightshift } from "@/lib/store";
 import { copyText } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { listShopProducts } from "@/lib/commerce/shop";
 
-export const Route = createFileRoute("/shop/")({ component: ShopPage });
+export const Route = createFileRoute("/shop/")({
+  loader: () => listShopProducts(),
+  component: ShopPage,
+});
 
 function ShopPage() {
-  const allProducts = useNightshift((s) => s.products);
-  const products = allProducts.filter((p) => p.listed);
+  const products = Route.useLoaderData();
   const shopName = useNightshift((s) => s.settings.shopName);
-  const payoutUrl = useNightshift((s) => s.settings.payoutUrl);
-  const setDeskOpen = useNightshift((s) => s.setDeskOpen);
 
   async function shareShop() {
     const url = `${window.location.origin}/shop`;
@@ -30,15 +31,6 @@ function ShopPage() {
             Digital products minted on the Nightshift press. Instant files — guides, kits, prompts,
             and desks you can use the same day.
           </p>
-          {!payoutUrl ? (
-            <button
-              type="button"
-              onClick={() => setDeskOpen(true)}
-              className="mt-3 text-left text-sm text-warn underline-offset-4 hover:underline"
-            >
-              Payout link is not set. Buy buttons stay closed until you add one in desk settings.
-            </button>
-          ) : null}
         </div>
         <Button variant="secondary" onClick={shareShop}>
           <Link2 className="size-4" />

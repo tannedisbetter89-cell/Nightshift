@@ -1,19 +1,26 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ExternalLink } from "lucide-react";
-import { payUrl, useNightshift } from "@/lib/store";
+import { ArrowLeft } from "lucide-react";
 import { TYPE_LABEL } from "@/lib/types";
 import { formatUsd } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { PaypalButtons } from "@/components/paypal-buttons";
+import { getShopProduct } from "@/lib/commerce/shop";
+import { getPaypalClientConfig } from "@/lib/commerce/checkout";
 
-export const Route = createFileRoute("/shop/$id")({ component: ShopProduct });
+export const Route = createFileRoute("/shop/$id")({
+  loader: async ({ params }) => {
+    const [product, paypal] = await Promise.all([
+      getShopProduct({ data: { id: params.id } }),
+      getPaypalClientConfig(),
+    ]);
+    return { product, paypal };
+  },
+  component: ShopProduct,
+});
 
 function ShopProduct() {
-  const { id } = Route.useParams();
-  const product = useNightshift((s) => s.products.find((p) => p.id === id && p.listed));
-  const payoutUrl = useNightshift((s) => s.settings.payoutUrl);
-  const payoutLabel = useNightshift((s) => s.settings.payoutLabel);
-  const setDeskOpen = useNightshift((s) => s.setDeskOpen);
+  const { product, paypal } = Route.useLoaderData();
 
   if (!product) {
     return (
@@ -26,7 +33,7 @@ function ShopProduct() {
     );
   }
 
-  const checkout = payUrl(product, payoutUrl);
+  const checkoutConfigured = paypal.configured;
 
   return (
     <article className="mx-auto flex max-w-2xl flex-col gap-8 pb-24 sm:pb-8">
@@ -44,23 +51,21 @@ function ShopProduct() {
         <p className="mt-3 text-base leading-relaxed text-muted-foreground">{product.tagline}</p>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl bg-card p-5 shadow-[var(--shadow-border)]">
-        <p className="font-display text-4xl tabular-nums">{formatUsd(product.priceUsd)}</p>
-        {checkout ? (
-          <Button asChild>
-            <a href={checkout} target="_blank" rel="noreferrer">
-              {payoutLabel} · {formatUsd(product.priceUsd)}
-              <ExternalLink className="size-4" />
-            </a>
-          </Button>
+      <div className="flex flex-col gap-4 rounded-xl bg-card p-5 shadow-[var(--shadow-border)]">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <p className="font-display text-4xl tabular-nums">{formatUsd(product.priceUsd)}</p>
+          <p className="text-xs text-muted-foreground">Secure checkout by PayPal</p>
+        </div>
+        {checkoutConfigured ? (
+          <PaypalButtons
+            productId={product.id}
+            clientId={paypal.clientId}
+            currency="USD"
+          />
         ) : (
-          <button
-            type="button"
-            onClick={() => setDeskOpen(true)}
-            className="text-sm text-muted-foreground underline-offset-4 hover:underline"
-          >
-            Payout link not set
-          </button>
+          <p className="text-sm text-muted-foreground">
+            Checkout is being set up — check back soon to purchase this product.
+          </p>
         )}
       </div>
 
@@ -88,22 +93,11 @@ function ShopProduct() {
         <p className="text-xs tracking-wide text-muted-foreground uppercase">{product.tags.join(" · ")}</p>
       ) : null}
 
-      {checkout ? (
+      {checkoutConfigured ? (
         <p className="text-xs leading-relaxed text-muted-foreground">
-          After you pay, write the product name in the payment note. The operator sends the file
-          from the vault.
+          After payment, you'll get a confirmation with your download link. A receipt goes to
+          your email.
         </p>
-      ) : null}
-
-      {checkout ? (
-        <div className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-background/95 p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] sm:hidden">
-          <Button className="w-full" asChild>
-            <a href={checkout} target="_blank" rel="noreferrer">
-              {payoutLabel} · {formatUsd(product.priceUsd)}
-              <ExternalLink className="size-4" />
-            </a>
-          </Button>
-        </div>
       ) : null}
     </article>
   );

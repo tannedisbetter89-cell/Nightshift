@@ -10,19 +10,32 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DeskRouteImport } from './routes/desk'
 import { Route as FactoryRouteImport } from './routes/factory'
 import { Route as LedgerRouteImport } from './routes/ledger'
 import { Route as PlaybookRouteImport } from './routes/playbook'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as VaultRouteImport } from './routes/vault'
+import { Route as DeskIndexRouteImport } from './routes/desk.index'
+import { Route as DeskLedgerRouteImport } from './routes/desk.ledger'
+import { Route as DeskLoginRouteImport } from './routes/desk.login'
+import { Route as DeskOrdersRouteImport } from './routes/desk.orders'
+import { Route as DeskProductsRouteImport } from './routes/desk.products'
 import { Route as ShopIndexRouteImport } from './routes/shop.index'
 import { Route as ShopIdRouteImport } from './routes/shop.$id'
+import { Route as ShopSuccessRouteImport } from './routes/shop.success'
 import { Route as VaultIndexRouteImport } from './routes/vault.index'
 import { Route as VaultIdRouteImport } from './routes/vault.$id'
+import { Route as DeskOrdersIdRouteImport } from './routes/desk.orders.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeskRoute = DeskRouteImport.update({
+  id: '/desk',
+  path: '/desk',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FactoryRoute = FactoryRouteImport.update({
@@ -50,6 +63,31 @@ const VaultRoute = VaultRouteImport.update({
   path: '/vault',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DeskIndexRoute = DeskIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DeskRoute,
+} as any)
+const DeskLedgerRoute = DeskLedgerRouteImport.update({
+  id: '/ledger',
+  path: '/ledger',
+  getParentRoute: () => DeskRoute,
+} as any)
+const DeskLoginRoute = DeskLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => DeskRoute,
+} as any)
+const DeskOrdersRoute = DeskOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => DeskRoute,
+} as any)
+const DeskProductsRoute = DeskProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => DeskRoute,
+} as any)
 const ShopIndexRoute = ShopIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -58,6 +96,11 @@ const ShopIndexRoute = ShopIndexRouteImport.update({
 const ShopIdRoute = ShopIdRouteImport.update({
   id: '/$id',
   path: '/$id',
+  getParentRoute: () => ShopRoute,
+} as any)
+const ShopSuccessRoute = ShopSuccessRouteImport.update({
+  id: '/success',
+  path: '/success',
   getParentRoute: () => ShopRoute,
 } as any)
 const VaultIndexRoute = VaultIndexRouteImport.update({
@@ -70,81 +113,133 @@ const VaultIdRoute = VaultIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => VaultRoute,
 } as any)
+const DeskOrdersIdRoute = DeskOrdersIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => DeskOrdersRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/desk': typeof DeskRouteWithChildren
   '/factory': typeof FactoryRoute
   '/ledger': typeof LedgerRoute
   '/playbook': typeof PlaybookRoute
   '/shop': typeof ShopRouteWithChildren
   '/vault': typeof VaultRouteWithChildren
+  '/desk/ledger': typeof DeskLedgerRoute
+  '/desk/login': typeof DeskLoginRoute
+  '/desk/orders': typeof DeskOrdersRouteWithChildren
+  '/desk/products': typeof DeskProductsRoute
   '/shop/$id': typeof ShopIdRoute
+  '/shop/success': typeof ShopSuccessRoute
   '/vault/$id': typeof VaultIdRoute
+  '/desk/': typeof DeskIndexRoute
   '/shop/': typeof ShopIndexRoute
   '/vault/': typeof VaultIndexRoute
+  '/desk/orders/$id': typeof DeskOrdersIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/factory': typeof FactoryRoute
   '/ledger': typeof LedgerRoute
   '/playbook': typeof PlaybookRoute
+  '/desk/ledger': typeof DeskLedgerRoute
+  '/desk/login': typeof DeskLoginRoute
+  '/desk/orders': typeof DeskOrdersRouteWithChildren
+  '/desk/products': typeof DeskProductsRoute
   '/shop/$id': typeof ShopIdRoute
+  '/shop/success': typeof ShopSuccessRoute
   '/vault/$id': typeof VaultIdRoute
+  '/desk': typeof DeskIndexRoute
   '/shop': typeof ShopIndexRoute
   '/vault': typeof VaultIndexRoute
+  '/desk/orders/$id': typeof DeskOrdersIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/desk': typeof DeskRouteWithChildren
   '/factory': typeof FactoryRoute
   '/ledger': typeof LedgerRoute
   '/playbook': typeof PlaybookRoute
   '/shop': typeof ShopRouteWithChildren
   '/vault': typeof VaultRouteWithChildren
+  '/desk/ledger': typeof DeskLedgerRoute
+  '/desk/login': typeof DeskLoginRoute
+  '/desk/orders': typeof DeskOrdersRouteWithChildren
+  '/desk/products': typeof DeskProductsRoute
   '/shop/$id': typeof ShopIdRoute
+  '/shop/success': typeof ShopSuccessRoute
   '/vault/$id': typeof VaultIdRoute
+  '/desk/': typeof DeskIndexRoute
   '/shop/': typeof ShopIndexRoute
   '/vault/': typeof VaultIndexRoute
+  '/desk/orders/$id': typeof DeskOrdersIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/desk'
     | '/factory'
     | '/ledger'
     | '/playbook'
     | '/shop'
     | '/vault'
+    | '/desk/ledger'
+    | '/desk/login'
+    | '/desk/orders'
+    | '/desk/products'
     | '/shop/$id'
+    | '/shop/success'
     | '/vault/$id'
+    | '/desk/'
     | '/shop/'
     | '/vault/'
+    | '/desk/orders/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/factory'
     | '/ledger'
     | '/playbook'
+    | '/desk/ledger'
+    | '/desk/login'
+    | '/desk/orders'
+    | '/desk/products'
     | '/shop/$id'
+    | '/shop/success'
     | '/vault/$id'
+    | '/desk'
     | '/shop'
     | '/vault'
+    | '/desk/orders/$id'
   id:
     | '__root__'
     | '/'
+    | '/desk'
     | '/factory'
     | '/ledger'
     | '/playbook'
     | '/shop'
     | '/vault'
+    | '/desk/ledger'
+    | '/desk/login'
+    | '/desk/orders'
+    | '/desk/products'
     | '/shop/$id'
+    | '/shop/success'
     | '/vault/$id'
+    | '/desk/'
     | '/shop/'
     | '/vault/'
+    | '/desk/orders/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DeskRoute: typeof DeskRouteWithChildren
   FactoryRoute: typeof FactoryRoute
   LedgerRoute: typeof LedgerRoute
   PlaybookRoute: typeof PlaybookRoute
@@ -159,6 +254,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/desk': {
+      id: '/desk'
+      path: '/desk'
+      fullPath: '/desk'
+      preLoaderRoute: typeof DeskRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/factory': {
@@ -196,6 +298,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VaultRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/desk/': {
+      id: '/desk/'
+      path: '/'
+      fullPath: '/desk/'
+      preLoaderRoute: typeof DeskIndexRouteImport
+      parentRoute: typeof DeskRoute
+    }
+    '/desk/ledger': {
+      id: '/desk/ledger'
+      path: '/ledger'
+      fullPath: '/desk/ledger'
+      preLoaderRoute: typeof DeskLedgerRouteImport
+      parentRoute: typeof DeskRoute
+    }
+    '/desk/login': {
+      id: '/desk/login'
+      path: '/login'
+      fullPath: '/desk/login'
+      preLoaderRoute: typeof DeskLoginRouteImport
+      parentRoute: typeof DeskRoute
+    }
+    '/desk/orders': {
+      id: '/desk/orders'
+      path: '/orders'
+      fullPath: '/desk/orders'
+      preLoaderRoute: typeof DeskOrdersRouteImport
+      parentRoute: typeof DeskRoute
+    }
+    '/desk/products': {
+      id: '/desk/products'
+      path: '/products'
+      fullPath: '/desk/products'
+      preLoaderRoute: typeof DeskProductsRouteImport
+      parentRoute: typeof DeskRoute
+    }
     '/shop/': {
       id: '/shop/'
       path: '/'
@@ -208,6 +345,13 @@ declare module '@tanstack/react-router' {
       path: '/$id'
       fullPath: '/shop/$id'
       preLoaderRoute: typeof ShopIdRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/shop/success': {
+      id: '/shop/success'
+      path: '/success'
+      fullPath: '/shop/success'
+      preLoaderRoute: typeof ShopSuccessRouteImport
       parentRoute: typeof ShopRoute
     }
     '/vault/': {
@@ -224,16 +368,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VaultIdRouteImport
       parentRoute: typeof VaultRoute
     }
+    '/desk/orders/$id': {
+      id: '/desk/orders/$id'
+      path: '/$id'
+      fullPath: '/desk/orders/$id'
+      preLoaderRoute: typeof DeskOrdersIdRouteImport
+      parentRoute: typeof DeskOrdersRoute
+    }
   }
 }
 
+interface DeskOrdersRouteChildren {
+  DeskOrdersIdRoute: typeof DeskOrdersIdRoute
+}
+
+const DeskOrdersRouteChildren: DeskOrdersRouteChildren = {
+  DeskOrdersIdRoute: DeskOrdersIdRoute,
+}
+
+const DeskOrdersRouteWithChildren = DeskOrdersRoute._addFileChildren(
+  DeskOrdersRouteChildren,
+)
+
+interface DeskRouteChildren {
+  DeskLedgerRoute: typeof DeskLedgerRoute
+  DeskLoginRoute: typeof DeskLoginRoute
+  DeskOrdersRoute: typeof DeskOrdersRouteWithChildren
+  DeskProductsRoute: typeof DeskProductsRoute
+  DeskIndexRoute: typeof DeskIndexRoute
+}
+
+const DeskRouteChildren: DeskRouteChildren = {
+  DeskLedgerRoute: DeskLedgerRoute,
+  DeskLoginRoute: DeskLoginRoute,
+  DeskOrdersRoute: DeskOrdersRouteWithChildren,
+  DeskProductsRoute: DeskProductsRoute,
+  DeskIndexRoute: DeskIndexRoute,
+}
+
+const DeskRouteWithChildren = DeskRoute._addFileChildren(DeskRouteChildren)
+
 interface ShopRouteChildren {
   ShopIdRoute: typeof ShopIdRoute
+  ShopSuccessRoute: typeof ShopSuccessRoute
   ShopIndexRoute: typeof ShopIndexRoute
 }
 
 const ShopRouteChildren: ShopRouteChildren = {
   ShopIdRoute: ShopIdRoute,
+  ShopSuccessRoute: ShopSuccessRoute,
   ShopIndexRoute: ShopIndexRoute,
 }
 
@@ -253,6 +436,7 @@ const VaultRouteWithChildren = VaultRoute._addFileChildren(VaultRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DeskRoute: DeskRouteWithChildren,
   FactoryRoute: FactoryRoute,
   LedgerRoute: LedgerRoute,
   PlaybookRoute: PlaybookRoute,
