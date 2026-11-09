@@ -4,11 +4,11 @@ const t0 = 1_725_400_000_000;
 
 // Grok template price scheme (Kristi, confirmed Nov 2026): each trade's full
 // pack is $29 on its own — NOT bundled together into one $29 pack. Single
-// templates are $19 each. The three packs below are priced at the full-pack
-// rate and left unlisted until Kristi approves the pack contents for sale
-// (she is still reviewing the drafts); flip listed to true when she gives
-// the go-ahead. No single-template products exist yet — the $19 tier is
-// defined here for when she specifies which templates to sell individually.
+// templates are $19 each (GROK_SINGLE_TEMPLATE_PRICE_USD): one listed product
+// per prompt in each pack, generated Nov 9, 2026 by
+// scripts/generate-grok-singles.py (37 singles: 10 contractors, 13 construction,
+// 14 commercial cleaning). The three full packs went live the same day when
+// Kristi approved them ("Get the packs live").
 const GROK_FULL_PACK_PRICE_USD = 29;
 const GROK_SINGLE_TEMPLATE_PRICE_USD = 19;
 
@@ -349,9 +349,9 @@ export const SEED_PRODUCTS: Product[] = [
     createdAt: t0 + 6,
     tags: ["grok", "prompts", "contractors", "quotes", "templates"],
     gumroadDescription:
-      "11 copy-paste Grok prompts for contractors: detailed quotes and ballpark estimates, scope-of-work documents, change order notices, client follow-ups, and job closeout checklists. Fill in the blanks with your own job details — nothing invented, nothing to untangle.",
+      "10 copy-paste Grok prompts for contractors: detailed quotes and ballpark estimates, scope-of-work documents, change order notices, client follow-ups, and job closeout checklists. Fill in the blanks with your own job details — nothing invented, nothing to untangle.",
     salesPage:
-      "Paperwork is where small jobs lose their margin. This pack gives you eleven prompts you paste into Grok: the quote, the scope, the change order, the follow-up, the closeout. You supply the job facts; the prompt refuses to invent prices, dates, or services you did not list. The result reads like you wrote it on a good day — because you checked it before you sent it. This pack is made for contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+      "Paperwork is where small jobs lose their margin. This pack gives you ten prompts you paste into Grok: the quote, the scope, the change order, the follow-up, the closeout. You supply the job facts; the prompt refuses to invent prices, dates, or services you did not list. The result reads like you wrote it on a good day — because you checked it before you sent it. This pack is made for contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
     tweets: [
       "A quote that invents a price is a promise you never made. Give the model your facts, not your hopes.",
       "Scope creep starts where the scope was never written down. Write it once, sign it, hold it.",
@@ -412,7 +412,7 @@ export const SEED_PRODUCTS: Product[] = [
     createdAt: t0 + 7,
     tags: ["grok", "prompts", "construction", "estimates", "safety"],
     gumroadDescription:
-      "12 copy-paste Grok prompts for construction: full and rough project estimates, material lists and supplier orders, daily job logs and weekly summaries, subcontractor messages, morning safety reminders and site checklists, and client progress updates including delay notices.",
+      "13 copy-paste Grok prompts for construction: full and rough project estimates, material lists and supplier orders, daily job logs and weekly summaries, subcontractor messages, morning safety reminders and site checklists, and client progress updates including delay notices.",
     salesPage:
       "A job site runs on paper as much as on lumber: the estimate, the material list, the log, the sub's scope, the morning safety talk, the Friday update. This pack turns each one into a prompt you paste into Grok with your own project facts. No invented quantities, no guessed dates — blanks stay blank until you fill them, and the result is a record you can stand behind. This pack is made for construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
     tweets: [
@@ -479,9 +479,9 @@ export const SEED_PRODUCTS: Product[] = [
     createdAt: t0 + 8,
     tags: ["grok", "prompts", "cleaning", "commercial", "checklists"],
     gumroadDescription:
-      "13 copy-paste Grok prompts for commercial cleaning: office cleaning quotes and quick inquiry replies, service checklists by space type, supply starter lists and restock orders, client onboarding messages, and review requests for new and ongoing clients.",
+      "14 copy-paste Grok prompts for commercial cleaning: office cleaning quotes and quick inquiry replies, service checklists by space type, supply starter lists and restock orders, client onboarding messages, and review requests for new and ongoing clients.",
     salesPage:
-      "Every account runs smoother when the words are already written: the quote, the checklist for each space, the supply order, the welcome message, the review ask. This pack gives you thirteen prompts you paste into Grok with your own account details. The checklists are built to be followed on every visit, not admired once — checkboxes, notes space, and nothing invented. This pack is made for commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+      "Every account runs smoother when the words are already written: the quote, the checklist for each space, the supply order, the welcome message, the review ask. This pack gives you fourteen prompts you paste into Grok with your own account details. The checklists are built to be followed on every visit, not admired once — checkboxes, notes space, and nothing invented. This pack is made for commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
     tweets: [
       "A cleaning checklist nobody follows is decoration. One the crew ticks every visit is a standard.",
       "Quote the visit, not the vibe. Square feet, frequency, and exclusions — then the number.",
@@ -524,6 +524,1303 @@ export const SEED_PRODUCTS: Product[] = [
       },
     ],
   },
+// --- BEGIN GENERATED GROK SINGLES ---
+  {
+    id: "seed_grok_single_contractors_detailed-written-quote",
+    slug: "grok-template-contractors-detailed-written-quote",
+    title: "Detailed written quote",
+    tagline: "One copy-paste Grok prompt for contractors: detailed written quote.",
+    niche: "Contractors",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "General contractors and small trade crews who need client-ready paperwork fast and want the model to draft it from their own job details. For contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 100,
+    tags: ["grok", "prompts", "contractors", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for contractors — Detailed written quote. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Detailed written quote prompt from the Grok Templates for Contractors pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Detailed written quote for contractors. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for detailed written quote",
+        body: "Paste the Detailed written quote prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Job quotes and estimates section of the Grok Templates for Contractors pack: Detailed written quote. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_contractors_quick-ballpark-estimate",
+    slug: "grok-template-contractors-quick-ballpark-estimate",
+    title: "Quick ballpark estimate",
+    tagline: "One copy-paste Grok prompt for contractors: quick ballpark estimate.",
+    niche: "Contractors",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "General contractors and small trade crews who need client-ready paperwork fast and want the model to draft it from their own job details. For contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 101,
+    tags: ["grok", "prompts", "contractors", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for contractors — Quick ballpark estimate. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Quick ballpark estimate prompt from the Grok Templates for Contractors pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Quick ballpark estimate for contractors. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for quick ballpark estimate",
+        body: "Paste the Quick ballpark estimate prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Scope of work section of the Grok Templates for Contractors pack: Quick ballpark estimate. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_contractors_scope-of-work-document",
+    slug: "grok-template-contractors-scope-of-work-document",
+    title: "Scope of work document",
+    tagline: "One copy-paste Grok prompt for contractors: scope of work document.",
+    niche: "Contractors",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "General contractors and small trade crews who need client-ready paperwork fast and want the model to draft it from their own job details. For contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 102,
+    tags: ["grok", "prompts", "contractors", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for contractors — Scope of work document. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Scope of work document prompt from the Grok Templates for Contractors pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Scope of work document for contractors. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for scope of work document",
+        body: "Paste the Scope of work document prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Change orders section of the Grok Templates for Contractors pack: Scope of work document. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_contractors_change-order-notice",
+    slug: "grok-template-contractors-change-order-notice",
+    title: "Change order notice",
+    tagline: "One copy-paste Grok prompt for contractors: change order notice.",
+    niche: "Contractors",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "General contractors and small trade crews who need client-ready paperwork fast and want the model to draft it from their own job details. For contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 103,
+    tags: ["grok", "prompts", "contractors", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for contractors — Change order notice. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Change order notice prompt from the Grok Templates for Contractors pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Change order notice for contractors. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for change order notice",
+        body: "Paste the Change order notice prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Change orders section of the Grok Templates for Contractors pack: Change order notice. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_contractors_change-order-follow-up",
+    slug: "grok-template-contractors-change-order-follow-up",
+    title: "Change order follow-up",
+    tagline: "One copy-paste Grok prompt for contractors: change order follow-up.",
+    niche: "Contractors",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "General contractors and small trade crews who need client-ready paperwork fast and want the model to draft it from their own job details. For contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 104,
+    tags: ["grok", "prompts", "contractors", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for contractors — Change order follow-up. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Change order follow-up prompt from the Grok Templates for Contractors pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Change order follow-up for contractors. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for change order follow-up",
+        body: "Paste the Change order follow-up prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Client follow-up messages section of the Grok Templates for Contractors pack: Change order follow-up. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_contractors_following-up-on-a-sent-quote",
+    slug: "grok-template-contractors-following-up-on-a-sent-quote",
+    title: "Following up on a sent quote",
+    tagline: "One copy-paste Grok prompt for contractors: following up on a sent quote.",
+    niche: "Contractors",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "General contractors and small trade crews who need client-ready paperwork fast and want the model to draft it from their own job details. For contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 105,
+    tags: ["grok", "prompts", "contractors", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for contractors — Following up on a sent quote. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Following up on a sent quote prompt from the Grok Templates for Contractors pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Following up on a sent quote for contractors. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for following up on a sent quote",
+        body: "Paste the Following up on a sent quote prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Client follow-up messages section of the Grok Templates for Contractors pack: Following up on a sent quote. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_contractors_checking-in-after-the-job-is-done",
+    slug: "grok-template-contractors-checking-in-after-the-job-is-done",
+    title: "Checking in after the job is done",
+    tagline: "One copy-paste Grok prompt for contractors: checking in after the job is done.",
+    niche: "Contractors",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "General contractors and small trade crews who need client-ready paperwork fast and want the model to draft it from their own job details. For contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 106,
+    tags: ["grok", "prompts", "contractors", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for contractors — Checking in after the job is done. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Checking in after the job is done prompt from the Grok Templates for Contractors pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Checking in after the job is done for contractors. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for checking in after the job is done",
+        body: "Paste the Checking in after the job is done prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Client follow-up messages section of the Grok Templates for Contractors pack: Checking in after the job is done. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_contractors_overdue-payment-reminder",
+    slug: "grok-template-contractors-overdue-payment-reminder",
+    title: "Overdue payment reminder",
+    tagline: "One copy-paste Grok prompt for contractors: overdue payment reminder.",
+    niche: "Contractors",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "General contractors and small trade crews who need client-ready paperwork fast and want the model to draft it from their own job details. For contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 107,
+    tags: ["grok", "prompts", "contractors", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for contractors — Overdue payment reminder. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Overdue payment reminder prompt from the Grok Templates for Contractors pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Overdue payment reminder for contractors. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for overdue payment reminder",
+        body: "Paste the Overdue payment reminder prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Job closeout checklists section of the Grok Templates for Contractors pack: Overdue payment reminder. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_contractors_final-walkthrough-checklist",
+    slug: "grok-template-contractors-final-walkthrough-checklist",
+    title: "Final walkthrough checklist",
+    tagline: "One copy-paste Grok prompt for contractors: final walkthrough checklist.",
+    niche: "Contractors",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "General contractors and small trade crews who need client-ready paperwork fast and want the model to draft it from their own job details. For contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 108,
+    tags: ["grok", "prompts", "contractors", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for contractors — Final walkthrough checklist. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Final walkthrough checklist prompt from the Grok Templates for Contractors pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Final walkthrough checklist for contractors. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for final walkthrough checklist",
+        body: "Paste the Final walkthrough checklist prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Job closeout checklists section of the Grok Templates for Contractors pack: Final walkthrough checklist. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_contractors_closeout-summary-for-the-client",
+    slug: "grok-template-contractors-closeout-summary-for-the-client",
+    title: "Closeout summary for the client",
+    tagline: "One copy-paste Grok prompt for contractors: closeout summary for the client.",
+    niche: "Contractors",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "General contractors and small trade crews who need client-ready paperwork fast and want the model to draft it from their own job details. For contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 109,
+    tags: ["grok", "prompts", "contractors", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for contractors — Closeout summary for the client. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Closeout summary for the client prompt from the Grok Templates for Contractors pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Closeout summary for the client for contractors. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for closeout summary for the client",
+        body: "Paste the Closeout summary for the client prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Job closeout checklists section of the Grok Templates for Contractors pack: Closeout summary for the client. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_construction_full-project-estimate",
+    slug: "grok-template-construction-full-project-estimate",
+    title: "Full project estimate",
+    tagline: "One copy-paste Grok prompt for construction: full project estimate.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 110,
+    tags: ["grok", "prompts", "construction", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for construction — Full project estimate. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Full project estimate prompt from the Grok Templates for Construction pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Full project estimate for construction. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for full project estimate",
+        body: "Paste the Full project estimate prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Project estimates section of the Grok Templates for Construction pack: Full project estimate. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_construction_rough-estimate-for-an-early-inquiry",
+    slug: "grok-template-construction-rough-estimate-for-an-early-inquiry",
+    title: "Rough estimate for an early inquiry",
+    tagline: "One copy-paste Grok prompt for construction: rough estimate for an early inquiry.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 111,
+    tags: ["grok", "prompts", "construction", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for construction — Rough estimate for an early inquiry. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Rough estimate for an early inquiry prompt from the Grok Templates for Construction pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Rough estimate for an early inquiry for construction. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for rough estimate for an early inquiry",
+        body: "Paste the Rough estimate for an early inquiry prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Material lists section of the Grok Templates for Construction pack: Rough estimate for an early inquiry. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_construction_material-list-from-a-scope",
+    slug: "grok-template-construction-material-list-from-a-scope",
+    title: "Material list from a scope",
+    tagline: "One copy-paste Grok prompt for construction: material list from a scope.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 112,
+    tags: ["grok", "prompts", "construction", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for construction — Material list from a scope. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Material list from a scope prompt from the Grok Templates for Construction pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Material list from a scope for construction. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for material list from a scope",
+        body: "Paste the Material list from a scope prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Material lists section of the Grok Templates for Construction pack: Material list from a scope. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_construction_material-order-message-to-a-supplier",
+    slug: "grok-template-construction-material-order-message-to-a-supplier",
+    title: "Material order message to a supplier",
+    tagline: "One copy-paste Grok prompt for construction: material order message to a supplier.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 113,
+    tags: ["grok", "prompts", "construction", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for construction — Material order message to a supplier. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Material order message to a supplier prompt from the Grok Templates for Construction pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Material order message to a supplier for construction. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for material order message to a supplier",
+        body: "Paste the Material order message to a supplier prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Daily job logs section of the Grok Templates for Construction pack: Material order message to a supplier. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_construction_daily-job-log-entry",
+    slug: "grok-template-construction-daily-job-log-entry",
+    title: "Daily job log entry",
+    tagline: "One copy-paste Grok prompt for construction: daily job log entry.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 114,
+    tags: ["grok", "prompts", "construction", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for construction — Daily job log entry. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Daily job log entry prompt from the Grok Templates for Construction pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Daily job log entry for construction. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for daily job log entry",
+        body: "Paste the Daily job log entry prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Daily job logs section of the Grok Templates for Construction pack: Daily job log entry. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_construction_weekly-job-log-summary",
+    slug: "grok-template-construction-weekly-job-log-summary",
+    title: "Weekly job log summary",
+    tagline: "One copy-paste Grok prompt for construction: weekly job log summary.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 115,
+    tags: ["grok", "prompts", "construction", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for construction — Weekly job log summary. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Weekly job log summary prompt from the Grok Templates for Construction pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Weekly job log summary for construction. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for weekly job log summary",
+        body: "Paste the Weekly job log summary prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Subcontractor messages section of the Grok Templates for Construction pack: Weekly job log summary. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_construction_scheduling-a-subcontractor",
+    slug: "grok-template-construction-scheduling-a-subcontractor",
+    title: "Scheduling a subcontractor",
+    tagline: "One copy-paste Grok prompt for construction: scheduling a subcontractor.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 116,
+    tags: ["grok", "prompts", "construction", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for construction — Scheduling a subcontractor. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Scheduling a subcontractor prompt from the Grok Templates for Construction pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Scheduling a subcontractor for construction. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for scheduling a subcontractor",
+        body: "Paste the Scheduling a subcontractor prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Subcontractor messages section of the Grok Templates for Construction pack: Scheduling a subcontractor. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_construction_scope-confirmation-for-a-subcontractor",
+    slug: "grok-template-construction-scope-confirmation-for-a-subcontractor",
+    title: "Scope confirmation for a subcontractor",
+    tagline: "One copy-paste Grok prompt for construction: scope confirmation for a subcontractor.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 117,
+    tags: ["grok", "prompts", "construction", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for construction — Scope confirmation for a subcontractor. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Scope confirmation for a subcontractor prompt from the Grok Templates for Construction pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Scope confirmation for a subcontractor for construction. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for scope confirmation for a subcontractor",
+        body: "Paste the Scope confirmation for a subcontractor prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Subcontractor messages section of the Grok Templates for Construction pack: Scope confirmation for a subcontractor. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_construction_delay-or-reschedule-notice",
+    slug: "grok-template-construction-delay-or-reschedule-notice",
+    title: "Delay or reschedule notice",
+    tagline: "One copy-paste Grok prompt for construction: delay or reschedule notice.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 118,
+    tags: ["grok", "prompts", "construction", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for construction — Delay or reschedule notice. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Delay or reschedule notice prompt from the Grok Templates for Construction pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Delay or reschedule notice for construction. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for delay or reschedule notice",
+        body: "Paste the Delay or reschedule notice prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Safety checklist reminders section of the Grok Templates for Construction pack: Delay or reschedule notice. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_construction_morning-safety-reminder",
+    slug: "grok-template-construction-morning-safety-reminder",
+    title: "Morning safety reminder",
+    tagline: "One copy-paste Grok prompt for construction: morning safety reminder.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 119,
+    tags: ["grok", "prompts", "construction", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for construction — Morning safety reminder. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Morning safety reminder prompt from the Grok Templates for Construction pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Morning safety reminder for construction. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for morning safety reminder",
+        body: "Paste the Morning safety reminder prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Safety checklist reminders section of the Grok Templates for Construction pack: Morning safety reminder. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_construction_site-safety-checklist",
+    slug: "grok-template-construction-site-safety-checklist",
+    title: "Site safety checklist",
+    tagline: "One copy-paste Grok prompt for construction: site safety checklist.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 120,
+    tags: ["grok", "prompts", "construction", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for construction — Site safety checklist. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Site safety checklist prompt from the Grok Templates for Construction pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Site safety checklist for construction. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for site safety checklist",
+        body: "Paste the Site safety checklist prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Client progress updates section of the Grok Templates for Construction pack: Site safety checklist. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_construction_weekly-client-progress-update",
+    slug: "grok-template-construction-weekly-client-progress-update",
+    title: "Weekly client progress update",
+    tagline: "One copy-paste Grok prompt for construction: weekly client progress update.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 121,
+    tags: ["grok", "prompts", "construction", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for construction — Weekly client progress update. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Weekly client progress update prompt from the Grok Templates for Construction pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Weekly client progress update for construction. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for weekly client progress update",
+        body: "Paste the Weekly client progress update prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Client progress updates section of the Grok Templates for Construction pack: Weekly client progress update. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_construction_delay-notice-to-a-client",
+    slug: "grok-template-construction-delay-notice-to-a-client",
+    title: "Delay notice to a client",
+    tagline: "One copy-paste Grok prompt for construction: delay notice to a client.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 122,
+    tags: ["grok", "prompts", "construction", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for construction — Delay notice to a client. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Delay notice to a client prompt from the Grok Templates for Construction pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Delay notice to a client for construction. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for delay notice to a client",
+        body: "Paste the Delay notice to a client prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Client progress updates section of the Grok Templates for Construction pack: Delay notice to a client. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_office-cleaning-quote",
+    slug: "grok-template-commercial-cleaning-office-cleaning-quote",
+    title: "Office cleaning quote",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: office cleaning quote.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 123,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — Office cleaning quote. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Office cleaning quote prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Office cleaning quote for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for office cleaning quote",
+        body: "Paste the Office cleaning quote prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Cleaning quotes section of the Grok Templates for Commercial Cleaning pack: Office cleaning quote. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_quick-quote-reply-for-a-new-inquiry",
+    slug: "grok-template-commercial-cleaning-quick-quote-reply-for-a-new-inquiry",
+    title: "Quick quote reply for a new inquiry",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: quick quote reply for a new inquiry.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 124,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — Quick quote reply for a new inquiry. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Quick quote reply for a new inquiry prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Quick quote reply for a new inquiry for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for quick quote reply for a new inquiry",
+        body: "Paste the Quick quote reply for a new inquiry prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Service checklists by space type section of the Grok Templates for Commercial Cleaning pack: Quick quote reply for a new inquiry. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_office-space-checklist",
+    slug: "grok-template-commercial-cleaning-office-space-checklist",
+    title: "Office space checklist",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: office space checklist.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 125,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — Office space checklist. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Office space checklist prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Office space checklist for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for office space checklist",
+        body: "Paste the Office space checklist prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Service checklists by space type section of the Grok Templates for Commercial Cleaning pack: Office space checklist. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_restroom-checklist",
+    slug: "grok-template-commercial-cleaning-restroom-checklist",
+    title: "Restroom checklist",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: restroom checklist.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 126,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — Restroom checklist. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Restroom checklist prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Restroom checklist for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for restroom checklist",
+        body: "Paste the Restroom checklist prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Service checklists by space type section of the Grok Templates for Commercial Cleaning pack: Restroom checklist. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_break-room-and-kitchen-checklist",
+    slug: "grok-template-commercial-cleaning-break-room-and-kitchen-checklist",
+    title: "Break room and kitchen checklist",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: break room and kitchen checklist.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 127,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — Break room and kitchen checklist. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Break room and kitchen checklist prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Break room and kitchen checklist for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for break room and kitchen checklist",
+        body: "Paste the Break room and kitchen checklist prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Service checklists by space type section of the Grok Templates for Commercial Cleaning pack: Break room and kitchen checklist. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_lobby-and-common-area-checklist",
+    slug: "grok-template-commercial-cleaning-lobby-and-common-area-checklist",
+    title: "Lobby and common area checklist",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: lobby and common area checklist.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 128,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — Lobby and common area checklist. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Lobby and common area checklist prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Lobby and common area checklist for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for lobby and common area checklist",
+        body: "Paste the Lobby and common area checklist prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Service checklists by space type section of the Grok Templates for Commercial Cleaning pack: Lobby and common area checklist. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_warehouse-floor-checklist",
+    slug: "grok-template-commercial-cleaning-warehouse-floor-checklist",
+    title: "Warehouse floor checklist",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: warehouse floor checklist.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 129,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — Warehouse floor checklist. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Warehouse floor checklist prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Warehouse floor checklist for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for warehouse floor checklist",
+        body: "Paste the Warehouse floor checklist prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Supply lists section of the Grok Templates for Commercial Cleaning pack: Warehouse floor checklist. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_cleaning-supply-starter-list",
+    slug: "grok-template-commercial-cleaning-cleaning-supply-starter-list",
+    title: "Cleaning supply starter list",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: cleaning supply starter list.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 130,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — Cleaning supply starter list. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Cleaning supply starter list prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Cleaning supply starter list for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for cleaning supply starter list",
+        body: "Paste the Cleaning supply starter list prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Supply lists section of the Grok Templates for Commercial Cleaning pack: Cleaning supply starter list. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_restock-order-message",
+    slug: "grok-template-commercial-cleaning-restock-order-message",
+    title: "Restock order message",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: restock order message.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 131,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — Restock order message. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Restock order message prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Restock order message for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for restock order message",
+        body: "Paste the Restock order message prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Client onboarding messages section of the Grok Templates for Commercial Cleaning pack: Restock order message. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_welcome-message-for-a-new-cleaning-client",
+    slug: "grok-template-commercial-cleaning-welcome-message-for-a-new-cleaning-client",
+    title: "Welcome message for a new cleaning client",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: welcome message for a new cleaning client.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 132,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — Welcome message for a new cleaning client. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Welcome message for a new cleaning client prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Welcome message for a new cleaning client for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for welcome message for a new cleaning client",
+        body: "Paste the Welcome message for a new cleaning client prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Client onboarding messages section of the Grok Templates for Commercial Cleaning pack: Welcome message for a new cleaning client. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_first-clean-confirmation",
+    slug: "grok-template-commercial-cleaning-first-clean-confirmation",
+    title: "First-clean confirmation",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: first-clean confirmation.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 133,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — First-clean confirmation. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the First-clean confirmation prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: First-clean confirmation for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for first-clean confirmation",
+        body: "Paste the First-clean confirmation prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Client onboarding messages section of the Grok Templates for Commercial Cleaning pack: First-clean confirmation. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_access-and-scheduling-questions",
+    slug: "grok-template-commercial-cleaning-access-and-scheduling-questions",
+    title: "Access and scheduling questions",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: access and scheduling questions.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 134,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — Access and scheduling questions. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Access and scheduling questions prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Access and scheduling questions for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for access and scheduling questions",
+        body: "Paste the Access and scheduling questions prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Review requests section of the Grok Templates for Commercial Cleaning pack: Access and scheduling questions. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_review-request-after-the-first-clean",
+    slug: "grok-template-commercial-cleaning-review-request-after-the-first-clean",
+    title: "Review request after the first clean",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: review request after the first clean.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 135,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — Review request after the first clean. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Review request after the first clean prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Review request after the first clean for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for review request after the first clean",
+        body: "Paste the Review request after the first clean prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Review requests section of the Grok Templates for Commercial Cleaning pack: Review request after the first clean. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+  {
+    id: "seed_grok_single_commercial-cleaning_review-request-for-an-ongoing-client",
+    slug: "grok-template-commercial-cleaning-review-request-for-an-ongoing-client",
+    title: "Review request for an ongoing client",
+    tagline: "One copy-paste Grok prompt for commercial cleaning: review request for an ongoing client.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_SINGLE_TEMPLATE_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 136,
+    tags: ["grok", "prompts", "commercial-cleaning", "single"],
+    gumroadDescription: "One copy-paste Grok prompt for commercial cleaning — Review request for an ongoing client. Paste it into Grok, fill in the blanks with your own job details, and read the result before you send it.",
+    salesPage: "Just need the one prompt, not the whole pack? This is the Review request for an ongoing client prompt from the Grok Templates for Commercial Cleaning pack, on its own. Paste it into Grok, fill in every blank with the real job facts, and check the result before you send it. Same prompt as in the full pack — buy the single if this is the only one you need, or the pack if you want them all.",
+    tweets: [
+      "One prompt, one job done: Review request for an ongoing client for commercial cleaning. Paste, fill in the blanks, check it, send it.",
+    ],
+    emails: [
+      {
+        subject: "One prompt for review request for an ongoing client",
+        body: "Paste the Review request for an ongoing client prompt into Grok, fill in every blank with the real job facts, and read the result before you send it. If a blank is empty, the output is not ready — the blanks are the whole point.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How to use this template",
+        body: "Paste the prompt into Grok, fill in every bracketed blank with your own job details, and read the result carefully before you send it to a client, subcontractor, or crew member. The prompt refuses to invent prices, dates, or services you did not list — if a blank is empty, fill it in first.",
+      },
+      {
+        heading: "What it covers",
+        body: "This single covers one job from the Review requests section of the Grok Templates for Commercial Cleaning pack: Review request for an ongoing client. It is the same prompt that ships in the full pack — sold on its own for buyers who only need this one.",
+      },
+    ],
+  },
+// --- END GENERATED GROK SINGLES ---
 ];
 
 export function productToMarkdown(product: Product): string {
