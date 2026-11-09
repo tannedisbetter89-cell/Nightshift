@@ -2,6 +2,16 @@ import type { Product } from "./types";
 
 const t0 = 1_725_400_000_000;
 
+// Grok template price scheme (Kristi, confirmed Nov 2026): each trade's full
+// pack is $29 on its own — NOT bundled together into one $29 pack. Single
+// templates are $19 each. The three packs below are priced at the full-pack
+// rate and left unlisted until Kristi approves the pack contents for sale
+// (she is still reviewing the drafts); flip listed to true when she gives
+// the go-ahead. No single-template products exist yet — the $19 tier is
+// defined here for when she specifies which templates to sell individually.
+const GROK_FULL_PACK_PRICE_USD = 29;
+const GROK_SINGLE_TEMPLATE_PRICE_USD = 19;
+
 export const SEED_PRODUCTS: Product[] = [
   {
     id: "seed_rate_card",
@@ -318,6 +328,199 @@ export const SEED_PRODUCTS: Product[] = [
       {
         heading: "Client update",
         body: "Inputs: what moved, what’s blocked, decision needed, next artifact and date. Output: 6 lines, no adjectives, no ‘hope you’re well.’ This is the same shape as a good status email. Send it even on quiet days so the client does not write the story for you.",
+      },
+    ],
+  },
+  // PRICE (Kristi, confirmed Nov 2026): each trade's full pack is $29 on its own
+  // (GROK_FULL_PACK_PRICE_USD) — NOT bundled together into one $29 pack. Single
+  // templates are $19 each (GROK_SINGLE_TEMPLATE_PRICE_USD). listed flipped to true
+  // on Nov 9, 2026, when Kristi approved the packs for sale ("Get the packs live").
+  {
+    id: "seed_grok_contractors",
+    slug: "grok-templates-contractors",
+    title: "Grok Templates for Contractors",
+    tagline: "Copy-paste Grok prompts that turn a job into a quote, a scope, and a closeout — without another blank page.",
+    niche: "Contractors",
+    type: "prompt-pack",
+    priceUsd: GROK_FULL_PACK_PRICE_USD,
+    audience: "General contractors and small trade crews who need client-ready paperwork fast and want the model to draft it from their own job details. For contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 6,
+    tags: ["grok", "prompts", "contractors", "quotes", "templates"],
+    gumroadDescription:
+      "11 copy-paste Grok prompts for contractors: detailed quotes and ballpark estimates, scope-of-work documents, change order notices, client follow-ups, and job closeout checklists. Fill in the blanks with your own job details — nothing invented, nothing to untangle.",
+    salesPage:
+      "Paperwork is where small jobs lose their margin. This pack gives you eleven prompts you paste into Grok: the quote, the scope, the change order, the follow-up, the closeout. You supply the job facts; the prompt refuses to invent prices, dates, or services you did not list. The result reads like you wrote it on a good day — because you checked it before you sent it. This pack is made for contractors only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    tweets: [
+      "A quote that invents a price is a promise you never made. Give the model your facts, not your hopes.",
+      "Scope creep starts where the scope was never written down. Write it once, sign it, hold it.",
+      "The follow-up is the job after the job. A polite nudge beats a silent invoice every time.",
+    ],
+    emails: [
+      {
+        subject: "The quote is a document, not a conversation",
+        body: "Paste the detailed quote prompt into Grok, fill in every blank with the real job facts, and send the result as a quote the client can sign. If a blank is empty, the quote is not ready — the blanks are the whole point.",
+      },
+      {
+        subject: "Change orders belong in writing before the work moves",
+        body: "When the client asks for more, run the change order prompt first: what changed, what it costs, what it does to the date. Get the signature before the extra work starts, not after it is already done.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Job quotes and estimates",
+        body: "Two prompts: a detailed written quote with a signature line, and a short ballpark estimate message that says plainly it is an estimate, not a final quote. Both refuse to add prices, dates, or services you did not list.",
+      },
+      {
+        heading: "Scope of work",
+        body: "One prompt that turns your task list into a scope document: what is included, what the client supplies, what is not included, the schedule, and cleanup. Ends with a client signature line so the scope is agreed before work starts.",
+      },
+      {
+        heading: "Change orders",
+        body: "A change order notice and a follow-up for extra work outside the original quote. Both state the extra cost and time plainly and ask for written approval before work continues.",
+      },
+      {
+        heading: "Client follow-up messages",
+        body: "Three messages: following up on a sent quote, checking in after the job is done, and a polite overdue payment reminder. Polite, not pushy, with the numbers stated, not hinted.",
+      },
+      {
+        heading: "Job closeout checklists",
+        body: "A final walkthrough checklist to go through with the client on site, and a one-page closeout summary to hand over: work completed, materials used, warranty terms, care instructions, and payment status.",
+      },
+      {
+        heading: "Who this is not for",
+        body: "This pack is for contractors only. It is not for shopkeepers, teachers, small studio owners, or newsletter writers — the prompts assume trade jobs with clients, sites, scopes, and change orders.",
+      },
+    ],
+  },
+  // PRICE (Kristi, confirmed Nov 2026): each trade's full pack is $29 on its own
+  // (GROK_FULL_PACK_PRICE_USD) — NOT bundled together into one $29 pack. Single
+  // templates are $19 each (GROK_SINGLE_TEMPLATE_PRICE_USD). listed flipped to true
+  // on Nov 9, 2026, when Kristi approved the packs for sale ("Get the packs live").
+  {
+    id: "seed_grok_construction",
+    slug: "grok-templates-construction",
+    title: "Grok Templates for Construction",
+    tagline: "Estimates, material lists, job logs, and crew messages — drafted by Grok from your project facts.",
+    niche: "Construction",
+    type: "prompt-pack",
+    priceUsd: GROK_FULL_PACK_PRICE_USD,
+    audience: "Construction workers and small crews running projects who need estimates, logs, and updates in writing without spending the evening on them. For construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 7,
+    tags: ["grok", "prompts", "construction", "estimates", "safety"],
+    gumroadDescription:
+      "12 copy-paste Grok prompts for construction: full and rough project estimates, material lists and supplier orders, daily job logs and weekly summaries, subcontractor messages, morning safety reminders and site checklists, and client progress updates including delay notices.",
+    salesPage:
+      "A job site runs on paper as much as on lumber: the estimate, the material list, the log, the sub's scope, the morning safety talk, the Friday update. This pack turns each one into a prompt you paste into Grok with your own project facts. No invented quantities, no guessed dates — blanks stay blank until you fill them, and the result is a record you can stand behind. This pack is made for construction workers only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    tweets: [
+      "If the material list guessed a quantity, it is not a list. It is a wish. Leave the blank blank.",
+      "The daily log is the cheapest insurance a crew ever keeps. Ten lines tonight beats a dispute next month.",
+      "A delay notice sent early is a professional courtesy. A delay discovered late is a complaint.",
+    ],
+    emails: [
+      {
+        subject: "Write the estimate from facts, not from memory",
+        body: "Paste the full estimate prompt into Grok with the real phases, costs, and exclusions. The output reads clean because the inputs were complete. If a number is missing, the prompt leaves it out instead of inventing it.",
+      },
+      {
+        subject: "The Friday update keeps the client from writing the story",
+        body: "Run the weekly progress prompt every Friday: what moved, what is next, what is delayed, what is due. Clients who hear from you weekly do not call on Monday worried.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Project estimates",
+        body: "A full project estimate with phases, labor and material costs, exclusions, and payment terms, plus a short rough-range reply for early inquiries that says plainly it is not a firm quote.",
+      },
+      {
+        heading: "Material lists",
+        body: "A categorized material list from your scope that never guesses a quantity you did not give, and a short supplier order message that asks for confirmation of availability and delivery date.",
+      },
+      {
+        heading: "Daily job logs",
+        body: "A clean daily log entry from your notes — weather, crew, work done, materials, issues, tomorrow's plan — and a one-page weekly summary that rolls the week up for your records.",
+      },
+      {
+        heading: "Subcontractor messages",
+        body: "Scheduling, scope confirmation, and delay or reschedule notices. Each one puts the dates, scope, and price in writing and asks for a confirming reply, so nobody works from a verbal yes.",
+      },
+      {
+        heading: "Safety checklist reminders",
+        body: "A short morning safety reminder to read to the crew, and a daily site safety checklist to tick off each morning: gear, tools, walkways, ladders and scaffolding, storage, and emergency equipment.",
+      },
+      {
+        heading: "Client progress updates",
+        body: "A weekly progress update with work done, work planned, overall progress, and the next payment milestone, plus an honest delay notice that states the new date and what you are doing about it.",
+      },
+      {
+        heading: "Who this is not for",
+        body: "This pack is for construction workers only. It is not for shopkeepers, teachers, small studio owners, or newsletter writers — the prompts assume construction projects with crews, subcontractors, materials, and site safety.",
+      },
+    ],
+  },
+  // PRICE (Kristi, confirmed Nov 2026): each trade's full pack is $29 on its own
+  // (GROK_FULL_PACK_PRICE_USD) — NOT bundled together into one $29 pack. Single
+  // templates are $19 each (GROK_SINGLE_TEMPLATE_PRICE_USD). listed flipped to true
+  // on Nov 9, 2026, when Kristi approved the packs for sale ("Get the packs live").
+  {
+    id: "seed_grok_cleaning",
+    slug: "grok-templates-commercial-cleaning",
+    title: "Grok Templates for Commercial Cleaning",
+    tagline: "Quotes, checklists, and client messages for cleaning crews — paste, fill in, send.",
+    niche: "Commercial cleaning",
+    type: "prompt-pack",
+    priceUsd: GROK_FULL_PACK_PRICE_USD,
+    audience: "Commercial cleaners and cleaning crews who want consistent quotes, checklists, and client messages for every account. For commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 8,
+    tags: ["grok", "prompts", "cleaning", "commercial", "checklists"],
+    gumroadDescription:
+      "13 copy-paste Grok prompts for commercial cleaning: office cleaning quotes and quick inquiry replies, service checklists by space type, supply starter lists and restock orders, client onboarding messages, and review requests for new and ongoing clients.",
+    salesPage:
+      "Every account runs smoother when the words are already written: the quote, the checklist for each space, the supply order, the welcome message, the review ask. This pack gives you thirteen prompts you paste into Grok with your own account details. The checklists are built to be followed on every visit, not admired once — checkboxes, notes space, and nothing invented. This pack is made for commercial cleaners only — not for shopkeepers, teachers, small studio owners, or newsletter writers.",
+    tweets: [
+      "A cleaning checklist nobody follows is decoration. One the crew ticks every visit is a standard.",
+      "Quote the visit, not the vibe. Square feet, frequency, and exclusions — then the number.",
+      "The review ask after the first clean is worth more than any ad. Ask while the shine is fresh.",
+    ],
+    emails: [
+      {
+        subject: "One checklist per space, every visit",
+        body: "Office, restroom, break room, lobby, warehouse floor — each space gets its own checklist prompt with checkboxes and notes space. Hand the crew the list for the spaces on that account and nothing else.",
+      },
+      {
+        subject: "Onboard the account in three messages",
+        body: "Welcome, first-clean confirmation, and the access questions — run all three before the first visit and the crew walks in knowing the schedule, the access, and the off-limits areas.",
+      },
+    ],
+    sections: [
+      {
+        heading: "Cleaning quotes",
+        body: "A full office cleaning quote with a signature line, and a short friendly reply for new inquiries that gives a range and says plainly it is not a final quote.",
+      },
+      {
+        heading: "Service checklists by space type",
+        body: "Five checklists: office space, restrooms, break room and kitchen, lobby and common areas, and warehouse floors. Each one is formatted with checkboxes and notes space for the crew to follow on every visit.",
+      },
+      {
+        heading: "Supply lists",
+        body: "A categorized supply starter list for a new account that leaves quantities blank where you gave none, and a short restock order message for your supplier.",
+      },
+      {
+        heading: "Client onboarding messages",
+        body: "A welcome message, a first-clean confirmation, and the numbered access and scheduling questions to ask before the first visit: entry, alarms, parking, off-limits areas, supply storage, and the on-site contact.",
+      },
+      {
+        heading: "Review requests",
+        body: "Two low-pressure review asks: one after the first clean, one for a long-term client. Short, grateful, and never offering a reward for a review.",
+      },
+      {
+        heading: "Who this is not for",
+        body: "This pack is for commercial cleaners only. It is not for shopkeepers, teachers, small studio owners, or newsletter writers — the prompts assume cleaning accounts with facilities, crews, supplies, and recurring visits.",
       },
     ],
   },

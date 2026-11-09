@@ -5,9 +5,11 @@
  * browser's localStorage demo data), so prices and listings are the same
  * ones checkout will charge against.
  *
- * First-visit seeding: when the products table is empty, the existing
- * catalog (ids, slugs, titles, prices preserved) is inserted once, so the
- * shop keeps working exactly as before — now backed by the database.
+ * First-visit seeding: any seed-catalog product missing from the products
+ * table is inserted (ids, slugs, titles, prices preserved), and the Grok
+ * template packs get their deliverable files attached, so the shop keeps
+ * working exactly as before — now backed by the database. Safe to run on
+ * every shop visit: existing rows are never overwritten.
  */
 import { createServerFn } from "@tanstack/react-start";
 import { SEED_PRODUCTS } from "@/lib/catalog";
@@ -40,12 +42,13 @@ function toUiProduct(row: DbProduct): Product {
   };
 }
 
-async function seedCatalogIfEmpty(): Promise<void> {
+async function seedMissingCatalogEntries(): Promise<void> {
   const mod = await import("./server");
   const db = await (await import("@/lib/db")).getSql();
-  const count = await db<{ n: number }>`select count(*)::int as n from products`;
-  if ((count[0]?.n ?? 0) > 0) return;
+  const existing = await db<{ id: string }>`select id from products`;
+  const have = new Set(existing.map((r) => r.id));
   for (const p of SEED_PRODUCTS) {
+    if (have.has(p.id)) continue;
     try {
       await mod.createProduct({
       id: p.id,
@@ -64,15 +67,39 @@ async function seedCatalogIfEmpty(): Promise<void> {
       tags: p.tags,
       deliverable: {},
       });
+      have.add(p.id);
     } catch {
       // Race between two first visits, or a partially seeded catalog —
       // the unique constraints keep this safe; move on to the next product.
     }
   }
+  // Attach the Grok template deliverable files (the bytes the authorized
+  // /api/download route streams after a verified payment). Idempotent:
+  // existing file rows are never overwritten, and a missing product row
+  // (race) is covered by the operator's desk upload instead.
+  try {
+    const { GROK_TEMPLATE_DELIVERABLES } = await import("./grok-template-deliverables");
+    for (const d of GROK_TEMPLATE_DELIVERABLES) {
+      if (!have.has(d.productId)) continue;
+      try {
+        if (await mod.hasDeliverableFile(d.productId)) continue;
+        await mod.saveDeliverableFile({
+          product_id: d.productId,
+          filename: d.filename,
+          mime_type: d.mimeType,
+          data: new TextEncoder().encode(d.content),
+        });
+      } catch {
+        // Race or transient failure — the next shop visit retries.
+      }
+    }
+  } catch {
+    // Deliverables module missing — products still seed; files attach later.
+  }
 }
 
 export const listShopProducts = createServerFn({ method: "GET" }).handler(async () => {
-  await seedCatalogIfEmpty();
+  await seedMissingCatalogEntries();
   const mod = await import("./server");
   const rows = await mod.listPublicProducts();
   return rows.map(toUiProduct);
@@ -86,7 +113,7 @@ export const getShopProduct = createServerFn({ method: "GET" })
     return { id: (data as { id: string }).id };
   })
   .handler(async ({ data }) => {
-    await seedCatalogIfEmpty();
+    await seedMissingCatalogEntries();
     const mod = await import("./server");
     const row = await mod.getProductById(data.id);
     if (!row || !row.listed) return null;
