@@ -115,7 +115,12 @@ export const getShopProduct = createServerFn({ method: "GET" })
   .handler(async ({ data }) => {
     await seedMissingCatalogEntries();
     const mod = await import("./server");
-    const row = await mod.getProductById(data.id);
+    // The /shop/:id route is fed the product id by the shop floor, but
+    // shared links use the human-readable slug (e.g.
+    // /shop/grok-templates-contractors). Accept either, id first.
+    const row =
+      (await mod.getProductById(data.id)) ??
+      (await mod.getProductBySlug(data.id));
     if (!row || !row.listed) return null;
     return toUiProduct(row);
   });
