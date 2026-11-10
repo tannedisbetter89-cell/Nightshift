@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
-import { deskGetOrder, deskRetryFulfillment } from "@/lib/commerce/desk";
+import { deskGetOrder, deskMarkDfyDelivered, deskRetryFulfillment } from "@/lib/commerce/desk";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { StatusBadge } from "./desk.index";
@@ -35,7 +35,8 @@ function DeskOrderDetail() {
     );
   }
 
-  const { order, items, payments, fulfillments, ledger } = data;
+  const { order, items, payments, fulfillments, ledger, dfy } = data;
+  const [deliveredIds, setDeliveredIds] = useState<Set<string>>(new Set());
 
   async function retry(fulfillmentId: string) {
     setRetrying(fulfillmentId);
@@ -173,6 +174,65 @@ function DeskOrderDetail() {
             )}
           </CardContent>
         </Card>
+
+        {dfy.length > 0 ? (
+          <Card>
+            <CardHeader>
+              <CardTitle>Done-for-you request</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col gap-4">
+              {dfy.map((r) => {
+                const delivered = r.status === "delivered" || deliveredIds.has(r.id);
+                const fields: Array<[string, string]> = [
+                  ["Template pack", r.details.templatePack ?? ""],
+                  ["What they need", r.details.whatNeeded ?? ""],
+                  ["Business", r.details.businessName ?? ""],
+                  ["Client", r.details.clientName ?? ""],
+                  ["Job details", r.details.jobDetails ?? ""],
+                  ["Price / amount", r.details.priceOrAmount ?? ""],
+                  ["Needed by", r.details.neededBy ?? ""],
+                  ["Send finished file to", r.details.deliveryEmail ?? r.customer_email ?? ""],
+                ];
+                return (
+                  <div key={r.id} className="flex flex-col gap-2 border-t border-border pt-3 first:border-t-0 first:pt-0">
+                    <div className="flex items-center justify-between gap-3">
+                      <StatusBadge status={delivered ? "delivered" : "pending"} />
+                      <span className="text-xs text-muted-foreground">
+                        {new Date(r.created_at).toLocaleString()}
+                      </span>
+                    </div>
+                    {fields
+                      .filter(([, v]) => v)
+                      .map(([label, value]) => (
+                        <p key={label} className="text-sm">
+                          <span className="text-muted-foreground">{label}: </span>
+                          {value}
+                        </p>
+                      ))}
+                    {!delivered ? (
+                      <Button
+                        size="sm"
+                        variant="secondary"
+                        className="w-fit"
+                        onClick={async () => {
+                          try {
+                            await deskMarkDfyDelivered({ data: { id: r.id } });
+                            setDeliveredIds(new Set(deliveredIds).add(r.id));
+                            toast.success("Marked delivered.");
+                          } catch (err) {
+                            toast.error(err instanceof Error ? err.message : "Couldn't mark delivered.");
+                          }
+                        }}
+                      >
+                        Mark delivered (finished file emailed)
+                      </Button>
+                    ) : null}
+                  </div>
+                );
+              })}
+            </CardContent>
+          </Card>
+        ) : null}
       </div>
     </div>
   );

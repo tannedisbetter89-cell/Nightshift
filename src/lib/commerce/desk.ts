@@ -193,15 +193,33 @@ export const deskGetOrder = createServerFn({ method: "GET" })
     const sql = await getSql();
     const order = await db.getOrder(data.id);
     if (!order) return null;
-    const [items, payments, fulfillments, ledger] = await Promise.all([
+    const [items, payments, fulfillments, ledger, dfy] = await Promise.all([
       db.getOrderItems(order.id),
       sql<PaymentRow>`select id, provider, provider_order_id, provider_capture_id, amount_cents, currency, status, created_at
           from payments where order_id = ${order.id} order by created_at`,
       db.getFulfillmentsByOrder(order.id),
       sql<LedgerRow>`select id, kind, amount_cents, currency, description, occurred_at
           from ledger_entries where order_id = ${order.id} order by occurred_at`,
+      db.getDfyRequestsByOrder(order.id),
     ]);
-    return { order, items, payments, fulfillments, ledger };
+    return { order, items, payments, fulfillments, ledger, dfy };
+  });
+
+/** Mark a Done-For-You request delivered once the finished document is emailed. */
+export const deskMarkDfyDelivered = createServerFn({ method: "POST" })
+  .validator((data: unknown) => ({ id: str(data, "id", true)! }))
+  .handler(async ({ data }) => {
+    await guard();
+    const db = await import("./server");
+    const request = await db.markDfyRequestDelivered(data.id);
+    if (request) {
+      await db.logAudit({
+        action: "dfy.delivered",
+        entity: `dfy:${request.id}`,
+        detail: { order_id: request.order_id },
+      });
+    }
+    return request ? { id: request.id, status: request.status } : null;
   });
 
 export const deskListProducts = createServerFn({ method: "GET" }).handler(async () => {

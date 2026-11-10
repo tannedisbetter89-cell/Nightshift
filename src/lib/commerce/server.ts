@@ -671,3 +671,94 @@ export async function hasDeliverableFile(productId: string): Promise<boolean> {
     select 1 as n from deliverable_files where product_id = ${productId} limit 1`;
   return rows.length > 0;
 }
+
+/* ------------------------------------------------------------------ */
+/* Done-for-you requests (one per paid order holding the service product) */
+/* ------------------------------------------------------------------ */
+
+export interface DbDfyRequest {
+  id: string;
+  order_id: string;
+  product_id: string;
+  customer_email: string | null;
+  details: Record<string, string>;
+  status: "pending" | "delivered";
+  delivered_at: Date | null;
+  created_at: Date;
+  updated_at: Date;
+}
+
+function toDfyRequest(row: Record<string, unknown>): DbDfyRequest {
+  return { ...(row as unknown as DbDfyRequest), details: asJson(row.details, {}) };
+}
+
+/**
+ * Record a buyer's intake for the Done-For-You service. Idempotent on
+ * order_id: a second submit for the same order returns the first request
+ * instead of creating a duplicate.
+ */
+export async function createDfyRequest(input: {
+  order_id: string;
+  product_id: string;
+  customer_email?: string | null;
+  details: Record<string, string>;
+}): Promise<{ request: DbDfyRequest; created: boolean }> {
+  const db = await getSql();
+  const existing = await getDfyRequestByOrder(input.order_id, db);
+  if (existing) return { request: existing, created: false };
+  const rows = await db<Record<string, unknown>>`
+    insert into dfy_requests (id, order_id, product_id, customer_email, details)
+    values (${uid("dfy")}, ${input.order_id}, ${input.product_id},
+      ${input.customer_email ?? null}, ${json(input.details)})
+    on conflict (order_id) do nothing
+    returning *`;
+  if (rows[0]) return { request: toDfyRequest(rows[0]), created: true };
+  return { request: (await getDfyRequestByOrder(input.order_id, db))!, created: false };
+}
+
+export async function getDfyRequestByOrder(
+  orderId: string,
+  sql?: Sql,
+): Promise<DbDfyRequest | null> {
+  const db = sql ?? (await getSql());
+  const rows = await db<Record<string, unknown>>`
+    select * from dfy_requests where order_id = ${orderId} limit 1`;
+  return rows.length ? toDfyRequest(rows[0]) : null;
+}
+
+export async function getDfyRequestsByOrder(orderId: string): Promise<DbDfyRequest[]> {
+  const db = await getSql();
+  const rows = await db<Record<string, unknown>>`
+    select * from dfy_requests where order_id = ${orderId} order by created_at`;
+  return rows.map(toDfyRequest);
+}
+
+export async function markDfyRequestDelivered(id: string): Promise<DbDfyRequest | null> {
+  const db = await getSql();
+  const rows = await db<Record<string, unknown>>`
+    update dfy_requests
+    set status = 'delivered', delivered_at = now(), updated_at = now()
+    where id = ${id}
+    returning *`;
+  return rows.length ? toDfyRequest(rows[0]) : null;
+}
+
+/**
+ * Guard shared by the intake form: the order must exist, be PAID, and
+ * contain a service product (the Done-For-You template). Returns that
+ * product. Throws otherwise — the intake handler and the smoke test both
+ * use this one function, so the rule can't drift between them.
+ */
+export async function getPaidServiceProductForOrder(orderId: string): Promise<DbProduct> {
+  const order = await getOrder(orderId);
+  if (!order) throw new Error("Order not found.");
+  if (order.status !== "paid") {
+    throw new Error("This order hasn't been confirmed as paid yet.");
+  }
+  const items = await getOrderItems(order.id);
+  for (const item of items) {
+    const product = await getProductById(item.product_id);
+    if (product && product.type === "service") return product;
+  }
+  throw new Error("This order doesn't include the Done-For-You service.");
+}

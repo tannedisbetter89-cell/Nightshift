@@ -95,8 +95,9 @@ function ShopProduct() {
 
       {checkoutConfigured ? (
         <p className="text-xs leading-relaxed text-muted-foreground">
-          After payment, you'll get a confirmation with your download link. A receipt goes to
-          your email.
+          {product.type === "service"
+            ? "After payment, tell us about your job right on the confirmation page — we'll fill out your template and send the finished document to your email."
+            : "After payment, you'll get a confirmation with your download link. A receipt goes to your email."}
         </p>
       ) : null}
     </article>

@@ -5,6 +5,7 @@ export const PRODUCT_TYPES = [
   "checklist",
   "sop",
   "script-pack",
+  "service",
 ] as const;
 
 export type ProductType = (typeof PRODUCT_TYPES)[number];
@@ -85,6 +86,7 @@ export const TYPE_LABEL: Record<ProductType, string> = {
   checklist: "Checklist",
   sop: "SOP pack",
   "script-pack": "Script pack",
+  service: "Done-for-you service",
 };
 
 export const CYCLE_SECONDS = 48;

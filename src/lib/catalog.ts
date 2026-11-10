@@ -1821,6 +1821,54 @@ export const SEED_PRODUCTS: Product[] = [
     ],
   },
 // --- END GENERATED GROK SINGLES ---
+
+  // Done-For-You service (Kristi, approved Nov 10, 2026): one template from
+  // the Grok packs, filled out for the buyer's own job. $59. The buyer pays,
+  // then tells us the job details on the confirmation page; the finished
+  // document is sent to their email. Deliberately outside the generated
+  // singles region above so scripts/generate-grok-singles.py never touches it.
+  {
+    id: "seed_dfy_filled_template",
+    slug: "done-for-you-filled-template",
+    title: "Done-For-You Template — Filled Out For You",
+    tagline: "Pick a template, tell us your job details, and get the finished document back — written out for you, ready to send.",
+    niche: "Client services",
+    type: "service",
+    priceUsd: 59,
+    audience: "Cleaning owners, contractors, and construction pros who want the words done for them instead of doing the writing themselves.",
+    listed: true,
+    source: "seed",
+    createdAt: t0 + 200,
+    tags: ["done-for-you", "templates", "grok", "service"],
+    gumroadDescription:
+      "One template from the Grok packs, filled out for your job. You send your details, we send back the finished document — a quote, a scope, a follow-up, or a checklist — ready to send to your client.",
+    salesPage:
+      "You already know the words matter — you just don't have time to write them. Buy this, tell us about your job, and we fill out one template from the Grok packs for you: the quote, the scope, the follow-up, the checklist. You get the finished document back by email, written for your job, ready to send. One template, one job, done for you.",
+    tweets: [
+      "Don't have time to write the quote? Buy the words done for you — one template, filled out for your job, sent back ready to send.",
+      "The blank page is the most expensive part of the job. Hand it to us and get it back finished.",
+    ],
+    emails: [
+      {
+        subject: "Your template, filled out for your job",
+        body: "Buy the Done-For-You template, tell us which one you want and the details of your job, and we send the finished document back to your email — written for your job, ready to send to your client.",
+      },
+    ],
+    sections: [
+      {
+        heading: "How it works",
+        body: "1. Buy this listing. 2. On the confirmation page, tell us which template you want and the details of your job — business name, client, what the job is, the price. 3. We fill the template out for your job and email the finished document to you.",
+      },
+      {
+        heading: "What you get",
+        body: "One finished document from the Grok packs — a quote, an estimate, a scope of work, a change order, a follow-up message, or a checklist — written with your real job facts and sent to your email, ready to forward to your client.",
+      },
+      {
+        heading: "What we need from you",
+        body: "Your business name, the client name, what the job is, and the price or amount. The more real details you give us, the better the finished document reads — we never invent prices, dates, or services you did not list.",
+      },
+    ],
+  },
 ];
 
 export function productToMarkdown(product: Product): string {

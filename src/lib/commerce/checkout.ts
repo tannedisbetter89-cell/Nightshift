@@ -125,6 +125,7 @@ export const getCheckoutOrder = createServerFn({ method: "GET" })
     const order = await db.getOrder(data.orderId);
     if (!order) return null;
     const items = await db.getOrderItems(order.id);
+    const dfyRequest = await db.getDfyRequestByOrder(order.id);
     return {
       id: order.id,
       status: order.status,
@@ -132,12 +133,21 @@ export const getCheckoutOrder = createServerFn({ method: "GET" })
       currency: order.currency,
       email: order.customer_email,
       createdAt: order.created_at,
-      items: items.map((i) => ({
-        title: i.title,
-        unitPriceCents: i.unit_price_cents,
-        quantity: i.quantity,
-      })),
+      items: await Promise.all(
+        items.map(async (i) => {
+          const product = await db.getProductById(i.product_id);
+          return {
+            title: i.title,
+            unitPriceCents: i.unit_price_cents,
+            quantity: i.quantity,
+            // The success page shows the intake form instead of a download
+            // for service products (the Done-For-You template).
+            type: product?.type ?? "guide",
+          };
+        }),
+      ),
       downloads: await orderDownloads(order.id),
+      dfySubmitted: dfyRequest !== null,
     };
   });
 
@@ -151,9 +161,11 @@ export interface OrderDownload {
 /**
  * Download links for a paid order. Tokens are refreshed when missing or
  * close to expiry, so the success page always shows a working link.
- * Returns [] unless the order is paid.
+ * Returns [] unless the order is paid. Service products (Done-For-You)
+ * are skipped — they have no file; the buyer fills the intake form instead.
+ * Exported for the dfy smoke test.
  */
-async function orderDownloads(orderId: string): Promise<OrderDownload[]> {
+export async function orderDownloads(orderId: string): Promise<OrderDownload[]> {
   const db = await import("./server");
   const order = await db.getOrder(orderId);
   if (!order || order.status !== "paid") return [];
@@ -165,6 +177,9 @@ async function orderDownloads(orderId: string): Promise<OrderDownload[]> {
       !f.delivery_token || expiresAt < Date.now() + 5 * 60_000;
     const ful = needsToken ? await db.issueDeliveryToken(f.id) : f;
     const product = await db.getProductById(f.product_id);
+    // Service products (Done-For-You) have no file to download — the buyer
+    // fills the intake form on the success page instead.
+    if (product?.type === "service") continue;
     out.push({
       title: product?.title ?? "Product",
       url: `/api/download/${ful.delivery_token}`,
